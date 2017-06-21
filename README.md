@@ -10,11 +10,11 @@
 
 [APK下载地址](https://raw.githubusercontent.com/lihongjiang/AndroidJsonEditView/master/doc/demo.apk)
 
-[](https://raw.githubusercontent.com/lihongjiang/AndroidJsonEditView/master/doc/test.gif)
+![](https://raw.githubusercontent.com/lihongjiang/AndroidJsonEditView/master/doc/test.gif)
 
 ## 界面描述
 
-[](https://raw.githubusercontent.com/lihongjiang/AndroidJsonEditView/master/doc/page.png)
+![](https://raw.githubusercontent.com/lihongjiang/AndroidJsonEditView/master/doc/page.png)
 
 
 	 1 四个一级功能，插入根数组；插入根对象；校验数据；复制到剪切板
