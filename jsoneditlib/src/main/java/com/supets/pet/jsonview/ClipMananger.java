@@ -2,16 +2,7 @@ package com.supets.pet.jsonview;
 
 import android.content.Context;
 import android.os.Build;
-import android.text.ClipboardManager;
 
-/**
- * AndroidJsonEditView
- *
- * @user lihongjiang
- * @description
- * @date 2017/6/21
- * @updatetime 2017/6/21
- */
 
 public class ClipMananger {
 

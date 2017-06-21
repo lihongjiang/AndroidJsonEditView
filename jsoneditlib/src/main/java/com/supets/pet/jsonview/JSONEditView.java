@@ -15,15 +15,6 @@ import android.widget.Toast;
 
 import com.supets.pet.jsoneditlib.R;
 
-/**
- * Demo
- *
- * @user lihongjiang
- * @description
- * @date 2017/6/21
- * @updatetime 2017/6/21
- */
-
 public class JSONEditView extends LinearLayout {
 
 

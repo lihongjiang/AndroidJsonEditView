@@ -15,15 +15,6 @@ import android.widget.TextView;
 
 import com.supets.pet.jsoneditlib.R;
 
-/**
- * Demo
- *
- * @user lihongjiang
- * @description
- * @date 2017/6/20
- * @updatetime 2017/6/20
- */
-
 public class JsonTagControlView extends LinearLayout implements View.OnClickListener {
 
     private View addTag;
