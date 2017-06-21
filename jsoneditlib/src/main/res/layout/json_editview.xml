@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/rootObject"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/json_textselector"
+            android:text="根对象" />
+
+        <Button
+            android:id="@+id/rootArray"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/json_textselector"
+            android:text="根数组" />
+
+        <Button
+            android:id="@+id/jsoncheck"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/json_textselector"
+            android:text="校验" />
+
+        <Button
+            android:id="@+id/jsoncopy"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/json_textselector"
+            android:text="复制" />
+    </LinearLayout>
+
+
+    <com.supets.pet.jsonview.CustomHScrollView
+        android:scrollbars="none"
+        android:background="#44ff5f"
+        android:layout_width="match_parent"
+        android:layout_height="300dp">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:scrollbars="none"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:id="@+id/jsoncontainer"
+                android:layout_width="1000dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
+
+        </ScrollView>
+    </com.supets.pet.jsonview.CustomHScrollView>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Json校验结果:" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none"
+        android:background="#eeeeee">
+
+        <TextView
+            android:id="@+id/jsonresult"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="20dp"
+            android:layout_marginStart="20dp"
+            android:textSize="16sp" />
+    </ScrollView>
+
+
+</merge>

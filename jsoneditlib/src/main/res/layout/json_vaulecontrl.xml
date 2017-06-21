@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/key"
+        android:background="@drawable/json_textselector"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"
+        android:minWidth="20dp"
+        android:text="key"
+        android:textColor="#333333"
+        android:textSize="14sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:text="  :  "
+        android:textColor="#333333"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/vaule"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"
+        android:minWidth="20dp"
+        android:text="vaule"
+        android:background="@drawable/json_textselector"
+        android:paddingRight="5dp"
+        android:textColor="#333333"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/controllay"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:padding="5dp"
+        android:text="【+】"
+        android:textColor="#333333"
+        android:textSize="12sp" />
+
+    <LinearLayout
+        android:id="@+id/controllayout"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/deletevaule"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="#ffff00"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="删除"
+            android:textColor="#333333"
+            android:textSize="12sp" />
+
+        <CheckBox
+            android:visibility="gone"
+            android:id="@+id/editvaule"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="EK"
+            android:textColor="#333333"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+</merge>

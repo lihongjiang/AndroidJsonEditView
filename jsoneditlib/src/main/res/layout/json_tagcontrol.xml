@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:background="@drawable/json_textselector"
+        android:id="@+id/key"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"
+        android:minWidth="20dp"
+        android:text="key"
+        android:textColor="#333333"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/fuhao"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"
+        android:text="  :  "
+        android:textColor="#333333"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/type"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"
+        android:text=""
+        android:textColor="#333333"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/controllay"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:padding="5dp"
+        android:text="【+】"
+        android:textColor="#333333"
+        android:textSize="12sp" />
+
+    <LinearLayout
+        android:id="@+id/controllayout"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/addTag"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="5dp"
+            android:layout_marginStart="5dp"
+            android:background="#ff0000"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="对象"
+            android:textColor="#333333"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/addTag2"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="#00fff0"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="数组"
+            android:textColor="#333333"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/deleteNode"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="#00ff00"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="删除"
+            android:textColor="#333333"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/addVaule"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="#ffff00"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="属性"
+            android:textColor="#333333"
+            android:textSize="12sp" />
+
+        <CheckBox
+            android:id="@+id/collees"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:drawablePadding="1dp"
+            android:gravity="center"
+            android:text="C"
+            android:textColor="#333333"
+            android:textSize="12sp" />
+
+        <CheckBox
+            android:visibility="gone"
+            android:id="@+id/EditKey"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="EK"
+            android:textColor="#333333"
+            android:textSize="12sp" />
+
+        <CheckBox
+            android:id="@+id/keystatus"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="KS"
+            android:textColor="#333333"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+</merge>
