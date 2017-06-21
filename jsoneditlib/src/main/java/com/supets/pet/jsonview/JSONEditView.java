@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.supets.pet.jsoneditlib.R;
 
@@ -97,9 +98,13 @@ public class JSONEditView extends LinearLayout {
         findViewById(R.id.jsoncopy).setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                String json = JSONViewHelper.parse(rootView);
-                if (JSONFormatUtil.isJson(json)) {
 
+                if (rootView != null) {
+                    String json = JSONViewHelper.parse(rootView);
+                    if (JSONFormatUtil.isJson(json)) {
+                        ClipMananger.copy(json, getContext());
+                        Toast.makeText(getContext(), "Copy Success", Toast.LENGTH_SHORT).show();
+                    }
                 }
             }
         });
