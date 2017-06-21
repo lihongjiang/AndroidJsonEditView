@@ -1,5 +1,19 @@
 apply plugin: 'com.android.library'
 
+apply plugin: 'maven'
+group = 'com.supets.lib'
+version = '1.0.0'
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            repository(url: 'http://localhost:8082/nexus/content/repositories/supet') {
+                authentication(userName: "admin", password: "admin123")
+            }
+        }
+    }
+}
+
 android {
     compileSdkVersion 25
     buildToolsVersion "25.0.2"
