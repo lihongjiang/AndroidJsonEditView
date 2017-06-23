@@ -170,8 +170,8 @@ public class JsonTagControlView extends LinearLayout implements View.OnClickList
                 (JsonTagVauleControlView) ((ViewGroup) getParent()).findViewById(R.id.jsonVauleControl);
 
         if (controlView != null) {
-            JsonTagVauleView  jsonTagVauleView=new JsonTagVauleView(getContext());
-            if (JsonTagType.array==tagType){
+            JsonTagVauleView jsonTagVauleView = new JsonTagVauleView(getContext());
+            if (JsonTagType.array == tagType) {
                 jsonTagVauleView.setArrayHide();
             }
             controlView.addView(jsonTagVauleView);
@@ -228,7 +228,7 @@ public class JsonTagControlView extends LinearLayout implements View.OnClickList
 
         if (controlView != null) {
             JsonTagVauleView jsonTagVauleView = new JsonTagVauleView(getContext());
-            if (JsonTagType.array==tagType){
+            if (JsonTagType.array == tagType) {
                 jsonTagVauleView.setArrayHide();
             }
             jsonTagVauleView.addTagVaule(key, vaule);
@@ -238,6 +238,7 @@ public class JsonTagControlView extends LinearLayout implements View.OnClickList
 
     public void setTagKey(String tagKey) {
         this.key.setText(tagKey);
+        keyExist = tagKey != null;
         setKeyExist();
     }
 

@@ -14,10 +14,10 @@ import java.util.Map;
 
 public class JSONViewHelper2 {
 
-    public static JsonView   parse(String testjson, ViewGroup viewGroup) throws JSONException {
+    public static JsonView parse(String testjson, ViewGroup viewGroup) throws JSONException {
         JsonElement map = new Gson().fromJson(testjson, JsonElement.class);
         JsonElement rootJsonElement = new Gson().toJsonTree(map);
-        return  test(viewGroup.getContext(), rootJsonElement, null);
+        return test(viewGroup.getContext(), rootJsonElement, null);
     }
 
     public static JsonView test(Context context, JsonElement obj, String keyno) {
@@ -34,30 +34,27 @@ public class JSONViewHelper2 {
                         .setTagType(JsonTagControlView.JsonTagType.object);
             }
 
+            jsonView.setKey(keyno);
+
             Iterator<Map.Entry<String, JsonElement>> keys =
                     obj.getAsJsonObject().entrySet().iterator();
             while (keys.hasNext()) {
                 Map.Entry<String, JsonElement> type = keys.next();
                 String key = type.getKey();
                 JsonElement vaule = type.getValue();
-
-
-                if (!vaule.isJsonNull()) {
-                    //shuzu
-                    if (vaule.isJsonArray()) {
-                        //go
-                        JsonView temp = test(context, vaule, key);
-                        jsonView.addView(temp);
-                    } else if (vaule.isJsonObject()) {
-                        //go
-                        JsonView temp = test(context, vaule, key);
-                        jsonView.addView(temp);
-                    } else {
-                        //add vaule
-                        jsonView.addTagVaule(key, vaule.getAsString());
-                    }
+                //shuzu
+                if (vaule.isJsonArray()) {
+                    //go
+                    JsonView temp = test(context, vaule, key);
+                    jsonView.addView(temp);
+                } else if (vaule.isJsonObject()) {
+                    //go
+                    JsonView temp = test(context, vaule, key);
+                    jsonView.addView(temp);
+                } else {
+                    //add vaule
+                    jsonView.addTagVaule(key, vaule.getAsString());
                 }
-
             }
 
             return jsonView;
