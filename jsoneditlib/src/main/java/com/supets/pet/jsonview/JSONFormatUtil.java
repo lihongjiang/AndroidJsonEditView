@@ -6,15 +6,33 @@ import org.json.JSONObject;
 
 public final class JSONFormatUtil {
 
-    public  static boolean isJson(String message) {
+    public static boolean isJson(String message) {
         try {
             new JSONObject(message);
         } catch (Exception e) {
             try {
                 new JSONArray(message);
             } catch (JSONException e1) {
-                return  false;
+                return false;
             }
+        }
+        return true;
+    }
+
+    public static boolean isJsonObject(String message) {
+        try {
+            new JSONObject(message);
+        } catch (Exception e) {
+            return false;
+        }
+        return true;
+    }
+
+    public static boolean isJsonArray(String message) {
+        try {
+            new JSONArray(message);
+        } catch (JSONException e1) {
+            return false;
         }
         return true;
     }

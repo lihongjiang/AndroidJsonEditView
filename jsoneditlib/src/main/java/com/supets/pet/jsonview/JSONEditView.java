@@ -15,6 +15,8 @@ import android.widget.Toast;
 
 import com.supets.pet.jsoneditlib.R;
 
+import org.json.JSONException;
+
 public class JSONEditView extends LinearLayout {
 
 
@@ -99,6 +101,18 @@ public class JSONEditView extends LinearLayout {
                 }
             }
         });
+    }
 
+    public void formatJson(String json) {
+        if (json != null) {
+            try {
+                JsonView jsonView = JSONViewHelper2.parse(json, mJsonRootView);
+                mJsonRootView.removeAllViews();
+                rootView = jsonView;
+                mJsonRootView.addView(jsonView);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
     }
 }

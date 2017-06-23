@@ -2,7 +2,7 @@ apply plugin: 'com.android.library'
 
 apply plugin: 'maven'
 group = 'com.supets.lib'
-version = '1.0.0'
+version = '1.2.0'
 
 uploadArchives {
     repositories {
@@ -42,4 +42,7 @@ dependencies {
     })
     compile 'com.android.support:appcompat-v7:25.3.0'
     testCompile 'junit:junit:4.12'
+
+    compile 'com.google.code.gson:gson:2.7'
+
 }

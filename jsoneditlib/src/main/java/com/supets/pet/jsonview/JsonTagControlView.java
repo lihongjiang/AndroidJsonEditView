@@ -170,7 +170,11 @@ public class JsonTagControlView extends LinearLayout implements View.OnClickList
                 (JsonTagVauleControlView) ((ViewGroup) getParent()).findViewById(R.id.jsonVauleControl);
 
         if (controlView != null) {
-            controlView.addView(new JsonTagVauleView(getContext()));
+            JsonTagVauleView  jsonTagVauleView=new JsonTagVauleView(getContext());
+            if (JsonTagType.array==tagType){
+                jsonTagVauleView.setArrayHide();
+            }
+            controlView.addView(jsonTagVauleView);
         }
     }
 
@@ -179,9 +183,9 @@ public class JsonTagControlView extends LinearLayout implements View.OnClickList
     }
 
 
-    public void setTagType(JsonTagType tagType,boolean keyExist) {
+    public void setTagType(JsonTagType tagType, boolean keyExist) {
         this.tagType = tagType;
-        this.keyExist=keyExist;
+        this.keyExist = keyExist;
 
         switch (tagType) {
             case array:
@@ -216,6 +220,25 @@ public class JsonTagControlView extends LinearLayout implements View.OnClickList
 
     public boolean isExistKey() {
         return keyExist;
+    }
+
+    public void addTagVaule(String key, String vaule) {
+        JsonTagVauleControlView controlView =
+                (JsonTagVauleControlView) ((ViewGroup) getParent()).findViewById(R.id.jsonVauleControl);
+
+        if (controlView != null) {
+            JsonTagVauleView jsonTagVauleView = new JsonTagVauleView(getContext());
+            if (JsonTagType.array==tagType){
+                jsonTagVauleView.setArrayHide();
+            }
+            jsonTagVauleView.addTagVaule(key, vaule);
+            controlView.addView(jsonTagVauleView);
+        }
+    }
+
+    public void setTagKey(String tagKey) {
+        this.key.setText(tagKey);
+        setKeyExist();
     }
 
     public enum JsonTagType {

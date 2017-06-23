@@ -15,6 +15,7 @@
         android:textSize="14sp" />
 
     <TextView
+        android:id="@+id/dian"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:gravity="center"

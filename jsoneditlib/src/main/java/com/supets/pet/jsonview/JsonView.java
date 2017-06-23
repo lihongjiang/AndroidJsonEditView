@@ -80,4 +80,11 @@ public class JsonView extends LinearLayout {
         return JsonTagControlView.JsonTagType.array == jsonTagControl.getTagType();
     }
 
+    public void addTagVaule(String key, String vaule) {
+        jsonTagControl.addTagVaule(key,vaule);
+    }
+
+    public void setKey(String key) {
+        this.jsonTagControl.setTagKey(key);
+    }
 }

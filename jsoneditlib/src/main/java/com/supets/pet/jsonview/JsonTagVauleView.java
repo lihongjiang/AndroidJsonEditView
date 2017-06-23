@@ -126,4 +126,15 @@ public class JsonTagVauleView extends LinearLayout implements View.OnClickListen
         }
     }
 
+    public void addTagVaule(String key1, String vaule1) {
+        key.setText(key1);
+        vaule.setText(vaule1);
+    }
+
+    public JsonTagVauleView setArrayHide() {
+        key.setVisibility(View.GONE);
+        findViewById(R.id.dian).setVisibility(View.GONE);
+        return this;
+    }
+
 }
