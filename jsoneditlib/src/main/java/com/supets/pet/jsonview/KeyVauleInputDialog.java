@@ -4,6 +4,7 @@ import android.app.Dialog;
 import android.content.Context;
 import android.view.Gravity;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -21,18 +22,31 @@ public class KeyVauleInputDialog extends Dialog implements
         super(context, R.style.xg_dialog);
         init();
         findViews();
+        adjustWidth();
     }
 
     public KeyVauleInputDialog(Context context, int res) {
         super(context, R.style.xg_dialog);
         init();
         findViews();
+        adjustWidth();
     }
 
     private void init() {
         getWindow().setGravity(Gravity.CENTER);
         setContentView(R.layout.json_keyvaule_dialog);
         setCanceledOnTouchOutside(true);
+    }
+
+    private void adjustWidth() {
+        int screenWidth = getContext().getResources().getDisplayMetrics().widthPixels;
+        WindowManager.LayoutParams params = getWindow().getAttributes();
+        params.width = screenWidth - dip2px(40f);
+        getWindow().setAttributes(params);
+    }
+
+    private int dip2px(float dpValue) {
+        return (int) (dpValue * getContext().getResources().getDisplayMetrics().density + 0.5f);
     }
 
     private void findViews() {
