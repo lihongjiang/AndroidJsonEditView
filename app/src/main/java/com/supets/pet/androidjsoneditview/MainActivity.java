@@ -19,7 +19,5 @@ public class MainActivity extends AppCompatActivity {
         jsonEditView.formatJson(testjson);
 
 
-
-
     }
 }

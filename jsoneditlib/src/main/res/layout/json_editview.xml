@@ -45,9 +45,10 @@
 
     <com.supets.pet.jsonview.CustomHScrollView
         android:scrollbars="none"
+        android:layout_weight="1"
         android:background="#44ff5f"
         android:layout_width="match_parent"
-        android:layout_height="300dp">
+        android:layout_height="0dp">
 
         <ScrollView
             android:layout_width="match_parent"
@@ -73,10 +74,11 @@
         android:text="Json校验结果:" />
 
     <ScrollView
+        android:layout_weight="1"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
         android:scrollbars="none"
-        android:background="#666666">
+        android:background="#cccccc">
 
         <TextView
             android:id="@+id/jsonresult"
