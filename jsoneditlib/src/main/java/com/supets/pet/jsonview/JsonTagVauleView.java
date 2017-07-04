@@ -5,6 +5,7 @@ import android.content.Context;
 import android.os.Build;
 import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
+import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +14,9 @@ import android.widget.CheckBox;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.google.gson.Gson;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
 import com.supets.pet.jsoneditlib.R;
 
 public class JsonTagVauleView extends LinearLayout implements View.OnClickListener {
@@ -118,10 +122,14 @@ public class JsonTagVauleView extends LinearLayout implements View.OnClickListen
 
     public String getVaule() {
         String result = vaule.getText().toString();
+
         try {
             Double.valueOf(result);
             return result;
         } catch (Exception e) {
+            if (result.equals("true") || result.equals("false")) {
+                return result;
+            }
             return "\"" + result + "\"";
         }
     }
