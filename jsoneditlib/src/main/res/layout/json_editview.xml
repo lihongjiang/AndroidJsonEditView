@@ -4,45 +4,6 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/rootObject"
-            android:layout_width="0dp"
-            android:layout_height="50dp"
-            android:layout_weight="1"
-            android:background="@drawable/json_textselector"
-            android:text="根对象" />
-
-        <Button
-            android:id="@+id/rootArray"
-            android:layout_width="0dp"
-            android:layout_height="50dp"
-            android:layout_weight="1"
-            android:background="@drawable/json_textselector"
-            android:text="根数组" />
-
-        <Button
-            android:id="@+id/jsoncheck"
-            android:layout_width="0dp"
-            android:layout_height="50dp"
-            android:layout_weight="1"
-            android:background="@drawable/json_textselector"
-            android:text="校验" />
-
-        <Button
-            android:id="@+id/jsoncopy"
-            android:layout_width="0dp"
-            android:layout_height="50dp"
-            android:layout_weight="1"
-            android:background="@drawable/json_textselector"
-            android:text="复制" />
-    </LinearLayout>
-
-
     <com.supets.pet.jsonview.CustomHScrollView
         android:scrollbars="none"
         android:layout_weight="1"
@@ -63,31 +24,5 @@
 
         </ScrollView>
     </com.supets.pet.jsonview.CustomHScrollView>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="15sp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
-        android:textColor="#333333"
-        android:text="Json校验结果:" />
-
-    <ScrollView
-        android:layout_weight="1"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:scrollbars="none"
-        android:background="#cccccc">
-
-        <TextView
-            android:id="@+id/jsonresult"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginStart="20dp"
-            android:textSize="16sp" />
-    </ScrollView>
-
 
 </LinearLayout>

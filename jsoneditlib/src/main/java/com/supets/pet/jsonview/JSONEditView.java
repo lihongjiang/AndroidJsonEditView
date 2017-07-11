@@ -10,18 +10,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.supets.pet.jsoneditlib.R;
-
-import org.json.JSONException;
 
 public class JSONEditView extends LinearLayout {
 
 
     private ViewGroup mJsonRootView;
     private JsonView rootView;
+    private JSONEditViewListener mJsonEditViewListener;
 
     public JSONEditView(Context context) {
         super(context);
@@ -47,63 +45,42 @@ public class JSONEditView extends LinearLayout {
     private void initView() {
         LayoutInflater.from(getContext()).inflate(R.layout.json_editview, this);
         setOrientation(VERTICAL);
-
         mJsonRootView = (ViewGroup) findViewById(R.id.jsoncontainer);
-
-        final TextView jsonresult = (TextView) findViewById(R.id.jsonresult);
-        findViewById(R.id.jsoncheck).setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                if (rootView != null) {
-                    String json = JSONViewHelper.parse(rootView);
-                    if (JSONFormatUtil.isJson(json)) {
-                        jsonresult.setText(JSONFormatUtil.log(json));
-                        jsonresult.setTextColor(Color.argb(255, 0, 0, 0));
-                    } else {
-                        jsonresult.setText(json);
-                        jsonresult.setTextColor(Color.argb(255, 255, 0, 0));
-                    }
-                }
-            }
-        });
-
-        findViewById(R.id.rootObject).setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                mJsonRootView.removeAllViews();
-                rootView = new JsonView(getContext())
-                        .setRootTagType(JsonTagControlView.JsonTagType.object);
-                mJsonRootView.addView(rootView);
-            }
-        });
-
-        findViewById(R.id.rootArray).setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                mJsonRootView.removeAllViews();
-                rootView = new JsonView(getContext())
-                        .setRootTagType(JsonTagControlView.JsonTagType.array);
-                mJsonRootView.addView(rootView);
-            }
-        });
-
-        findViewById(R.id.jsoncopy).setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                if (rootView != null) {
-                    String json = JSONViewHelper.parse(rootView);
-                    if (JSONFormatUtil.isJson(json)) {
-                        ClipMananger.copy(json, getContext());
-                        Toast.makeText(getContext(), "Copy Success", Toast.LENGTH_SHORT).show();
-                    }
-                }
-            }
-        });
     }
 
-    public void formatJson(String json) {
+    public void doJsonCopy() {
+        if (rootView != null) {
+            String json = JSONViewHelper.parse(rootView);
+            if (JSONFormatUtil.isJson(json)) {
+                ClipMananger.copy(json, getContext());
+                Toast.makeText(getContext(), "Copy Success", Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+
+    public void insertRootArray() {
+        mJsonRootView.removeAllViews();
+        rootView = new JsonView(getContext())
+                .setRootTagType(JsonTagControlView.JsonTagType.array);
+        mJsonRootView.addView(rootView);
+    }
+
+    public void insertRootObject() {
+        mJsonRootView.removeAllViews();
+        rootView = new JsonView(getContext()).setRootTagType(JsonTagControlView.JsonTagType.object);
+        mJsonRootView.addView(rootView);
+    }
+
+    public void doFormatOutput() {
+        if (rootView != null) {
+            if (mJsonEditViewListener != null) {
+                String json = JSONViewHelper.parse(rootView);
+                mJsonEditViewListener.formatOutput(json, JSONFormatUtil.isJson(json));
+            }
+        }
+    }
+
+    public void formatJsonInput(String json) {
         if (json != null) {
             try {
                 JsonView jsonView = JSONViewHelper2.parse(json, mJsonRootView);
@@ -114,5 +91,13 @@ public class JSONEditView extends LinearLayout {
                 e.printStackTrace();
             }
         }
+    }
+
+    public void setJSONEditViewListener(JSONEditViewListener listener) {
+        this.mJsonEditViewListener = listener;
+    }
+
+    public interface JSONEditViewListener {
+        void formatOutput(String json, boolean isJson);
     }
 }
